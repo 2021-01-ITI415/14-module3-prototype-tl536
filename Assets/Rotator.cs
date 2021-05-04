@@ -6,7 +6,7 @@ public class Rotator : MonoBehaviour
 {
     
     public Transform customPivot;
-    public GameObject player;
+    
 
 
     public void Update()

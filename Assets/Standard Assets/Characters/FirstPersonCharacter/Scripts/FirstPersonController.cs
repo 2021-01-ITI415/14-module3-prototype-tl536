@@ -26,7 +26,8 @@ namespace UnityStandardAssets.Characters.FirstPerson
         [SerializeField] private float m_StepInterval;
         [SerializeField] private AudioClip[] m_FootstepSounds;    // an array of footstep sounds that will be randomly selected from.
         [SerializeField] private AudioClip m_JumpSound;           // the sound played when character leaves the ground.
-        [SerializeField] private AudioClip m_LandSound;           // the sound played when character touches back on ground.
+        [SerializeField] private AudioClip m_LandSound;             // the sound played when character touches back on ground.
+        [SerializeField] private AudioClip m_Collect; 
 
         private Camera m_Camera;
         private bool m_Jump;
@@ -41,6 +42,7 @@ namespace UnityStandardAssets.Characters.FirstPerson
         private float m_NextStep;
         private bool m_Jumping;
         private AudioSource m_AudioSource;
+        private int collection;
 
         // Use this for initialization
         private void Start()
@@ -55,6 +57,7 @@ namespace UnityStandardAssets.Characters.FirstPerson
             m_Jumping = false;
             m_AudioSource = GetComponent<AudioSource>();
 			m_MouseLook.Init(transform , m_Camera.transform);
+            collection = 0;
         }
 
 
@@ -255,5 +258,16 @@ namespace UnityStandardAssets.Characters.FirstPerson
             }
             body.AddForceAtPosition(m_CharacterController.velocity*0.1f, hit.point, ForceMode.Impulse);
         }
+
+        private void OnTriggerEnter(Collider other)
+        {
+            if (other.gameObject.CompareTag("Collectible"))
+            {
+                collection = collection + 1;
+                other.gameObject.SetActive(false);
+                m_AudioSource.PlayOneShot (m_Collect);
+            }
+        }
+
     }
 }

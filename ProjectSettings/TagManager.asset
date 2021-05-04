@@ -6,6 +6,10 @@ TagManager:
   tags:
   - Hero
   - Metal
+  - Fire
+  - FxTemporaire
+  - Collectible
+  - Enemy
   layers:
   - Default
   - TransparentFX

@@ -4,9 +4,11 @@ using UnityEngine;
 
 public class Door1 : MonoBehaviour
 {
+    public AudioSource doorSound;
     Animator _doorAnim;
     void Start()
     {
+        doorSound = GetComponent<AudioSource>();
         _doorAnim = this.transform.parent.GetComponent<Animator>();
     }
     
@@ -15,6 +17,7 @@ public class Door1 : MonoBehaviour
     {
         if (other.tag == "Hero")
         {
+            doorSound.Play();
             _doorAnim.SetBool("IsOpening", true);
         }
     }
@@ -23,6 +26,7 @@ public class Door1 : MonoBehaviour
     {
         if (other.tag == "Hero")
         {
+            doorSound.Play();
             _doorAnim.SetBool("IsOpening", false);
         }
     }
