@@ -11,6 +11,7 @@ TagManager:
   - Collectible
   - Enemy
   - Mission1
+  - Mission2
   layers:
   - Default
   - TransparentFX

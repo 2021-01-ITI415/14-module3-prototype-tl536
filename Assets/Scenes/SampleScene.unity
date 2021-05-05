@@ -1960,7 +1960,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 70, y: 334}
-  m_SizeDelta: {x: 200, y: 50}
+  m_SizeDelta: {x: 500, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &286912196
 MonoBehaviour:
@@ -2016,7 +2016,7 @@ MonoBehaviour:
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 0
-  m_HorizontalAlignment: 1
+  m_HorizontalAlignment: 2
   m_VerticalAlignment: 256
   m_textAlignment: 65535
   m_characterSpacing: 0
@@ -9808,8 +9808,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1631571048}
-  m_LocalRotation: {x: -0.11983595, y: 0.86373764, z: 0.24410093, w: 0.42427748}
-  m_LocalPosition: {x: 202.84488, y: -19.366505, z: 307.2416}
+  m_LocalRotation: {x: 0.06512264, y: 0.927201, z: 0.31540078, w: -0.19125833}
+  m_LocalPosition: {x: 598.8002, y: -761.4075, z: 303.75964}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -11264,7 +11264,7 @@ GameObject:
   - component: {fileID: 1935584553}
   m_Layer: 0
   m_Name: OpenArea
-  m_TagString: Untagged
+  m_TagString: Mission1
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
