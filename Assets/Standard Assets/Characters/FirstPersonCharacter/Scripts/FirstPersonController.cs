@@ -43,11 +43,14 @@ namespace UnityStandardAssets.Characters.FirstPerson
         private float m_NextStep;
         private bool m_Jumping;
         private AudioSource m_AudioSource;
-        private int collection;
+        private int collection = 0;
+        private int generator = 0;
         public float HP = 100f;
         public TextMeshProUGUI mission;
         public TextMeshProUGUI health;
         public TextMeshProUGUI collect;
+        private bool collecting;
+        private bool starting;
 
 
         // Use this for initialization
@@ -64,8 +67,14 @@ namespace UnityStandardAssets.Characters.FirstPerson
             m_Jumping = false;
             m_AudioSource = GetComponent<AudioSource>();
 			m_MouseLook.Init(transform , m_Camera.transform);
+
+        }
+        private void Awake()
+        {
             collection = 0;
-            
+            collecting = false;
+            starting = false;
+
         }
 
 
@@ -272,14 +281,43 @@ namespace UnityStandardAssets.Characters.FirstPerson
             if (other.gameObject.CompareTag("Collectible"))
             {
 
-                collection = collection + 1;
                 other.gameObject.SetActive(false);
                 m_AudioSource.PlayOneShot (m_Collect);
+                collection = collection + 1;
+                collect.SetText(collection.ToString());
+
             }
 
             if (other.gameObject.CompareTag("Mission1"))
             {
-                mission.SetText("Collect 8 BioBattery");
+                if (collecting == false)
+                {
+                    mission.SetText("Collect 8 BioBattery");
+                    collect.SetText(collection.ToString());
+                }
+
+
+
+            }
+
+
+            if (other.gameObject.CompareTag("Mission2"))
+            {
+                if (collection == 8)
+                {
+                    if (starting == false)
+                    {
+                        mission.SetText("If you have already collected 8 BioBattery, go start the 4 BioGenerator at the second floor");
+                        collect.SetText(generator.ToString());
+                    }
+                }
+                else {
+                    mission.SetText("Find the remaining BioBattery on the first floor, then go start the 4 BioGenerator at the second floor");
+                }
+
+
+
+
 
             }
 
@@ -291,9 +329,23 @@ namespace UnityStandardAssets.Characters.FirstPerson
             if (other.gameObject.CompareTag("Mission1"))
             {
                 mission.SetText("");
+                collect.SetText(generator.ToString());
+
+                collecting = true;
 
             }
 
+            if (other.gameObject.CompareTag("Mission2"))
+            {
+                mission.SetText("");
+                if (collection == 8)
+                {
+                    starting = true;
+                }
+
+
+
+            }
 
         }
 
