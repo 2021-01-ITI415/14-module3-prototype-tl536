@@ -398,9 +398,27 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damage: 10
   range: 100
+  timeBetweenShooting: 0
+  spread: 0
+  reloadtime: 0
+  timeBetweenShots: 0
+  megazineSize: 0
+  bulletsPerTap: 0
+  allowButtonHold: 0
   fpsCam: {fileID: 2000000}
+  attakcPoint: {fileID: 0}
+  whatIsEnemy:
+    serializedVersion: 2
+    m_Bits: 0
   muzzleFlash: {fileID: 0}
+  bulletHoleGraphic: {fileID: 0}
   ShootingSound: {fileID: 0}
+  audioshoot: {fileID: 0}
+  audioreload: {fileID: 0}
+  camShake: {fileID: 0}
+  camShakeMagnitude: 0
+  camShakeDuration: 0
+  text: {fileID: 0}
 --- !u!1 &5020202906419233420
 GameObject:
   m_ObjectHideFlags: 0

@@ -3,6 +3,7 @@ using UnityEngine;
 using UnityStandardAssets.CrossPlatformInput;
 using UnityStandardAssets.Utility;
 using Random = UnityEngine.Random;
+using TMPro;
 
 namespace UnityStandardAssets.Characters.FirstPerson
 {
@@ -43,10 +44,16 @@ namespace UnityStandardAssets.Characters.FirstPerson
         private bool m_Jumping;
         private AudioSource m_AudioSource;
         private int collection;
+        public float HP = 100f;
+        public TextMeshProUGUI mission;
+        public TextMeshProUGUI health;
+        public TextMeshProUGUI collect;
+
 
         // Use this for initialization
         private void Start()
         {
+
             m_CharacterController = GetComponent<CharacterController>();
             m_Camera = Camera.main;
             m_OriginalCameraPosition = m_Camera.transform.localPosition;
@@ -58,6 +65,7 @@ namespace UnityStandardAssets.Characters.FirstPerson
             m_AudioSource = GetComponent<AudioSource>();
 			m_MouseLook.Init(transform , m_Camera.transform);
             collection = 0;
+            
         }
 
 
@@ -263,10 +271,30 @@ namespace UnityStandardAssets.Characters.FirstPerson
         {
             if (other.gameObject.CompareTag("Collectible"))
             {
+
                 collection = collection + 1;
                 other.gameObject.SetActive(false);
                 m_AudioSource.PlayOneShot (m_Collect);
             }
+
+            if (other.gameObject.CompareTag("Mission1"))
+            {
+                mission.SetText("Collect 8 BioBattery");
+
+            }
+
+
+        }
+        private void OnTriggerExit(Collider other)
+        {
+
+            if (other.gameObject.CompareTag("Mission1"))
+            {
+                mission.SetText("");
+
+            }
+
+
         }
 
     }

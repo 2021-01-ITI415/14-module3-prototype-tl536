@@ -21,10 +21,16 @@ public class Gun : MonoBehaviour
     public AudioSource ShootingSound;
     public AudioClip audioshoot;
     public AudioClip audioreload;
+    public AudioClip outofammo;
+
+
 
     public CameraShake camShake;
     public float camShakeMagnitude, camShakeDuration;
     public TextMeshProUGUI text;
+
+    public int wholesize;
+    private int bulletsused = 0;
 
     private void MyInput()
     {
@@ -58,14 +64,18 @@ public class Gun : MonoBehaviour
     private void Update()
     {
         MyInput();
-        text.SetText(bulletsLeft + " / " + megazineSize);
+        text.SetText(bulletsLeft + " / " + wholesize);
 
         if (Input.GetButtonDown("Fire1"))
-        {   
-            
-            
-            
-            
+        {
+
+            if (bulletsLeft == 0)
+            {
+
+                ShootingSound.PlayOneShot(outofammo);
+            }
+
+
         }
         if (Input.GetButtonUp("Fire1"))
         {
@@ -76,7 +86,11 @@ public class Gun : MonoBehaviour
 
     private void Shoot()
     {
-        ShootingSound.PlayOneShot(audioshoot);
+        if (bulletsLeft != 0)
+        {
+
+            ShootingSound.PlayOneShot(audioshoot);
+        }
         //spread
         float x = Random.Range(-spread, spread);
         float y = Random.Range(-spread, spread);
@@ -99,6 +113,8 @@ public class Gun : MonoBehaviour
 
         bulletsLeft--;
         bulletsShot--;
+        bulletsused++;
+        
         Invoke("ResetShot", timeBetweenShooting);
         if(bulletsShot > 0 && bulletsLeft > 0)
             Invoke("Shoot", timeBetweenShots);
@@ -115,16 +131,47 @@ public class Gun : MonoBehaviour
 
     private void Reload()
     {
-        ShootingSound.PlayOneShot(audioreload);
-        reloading = true;
-        Invoke("ReloadFinished", reloadtime);
+        if (wholesize != 0)
+        {
+            ShootingSound.PlayOneShot(audioreload);
+            reloading = true;
+            Invoke("ReloadFinished", reloadtime);
+        }
+        else
+        {
+            ShootingSound.PlayOneShot(outofammo);
+        }
+        
+
 
     }
 
 
     private void ReloadFinished()
     {
-        bulletsLeft = megazineSize;
+        if (wholesize < megazineSize)
+        {
+            if (wholesize < megazineSize- bulletsLeft)
+            {
+                bulletsLeft = bulletsLeft + wholesize;
+                wholesize = 0;
+                bulletsused = 0;
+            }
+
+            else
+            {
+                bulletsLeft = bulletsLeft + bulletsused;
+                wholesize = wholesize - bulletsused;
+                bulletsused = 0;
+            }
+           
+        }
+        else
+        {
+            bulletsLeft = megazineSize;
+            wholesize = wholesize - bulletsused;
+            bulletsused = 0;
+        }
         reloading = false;
 
     }
