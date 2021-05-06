@@ -9,8 +9,11 @@ public class DetectPlayer : MonoBehaviour
         
         if (other.gameObject.CompareTag("Hero"))
         {
-
-            this.transform.GetChild(0).gameObject.SetActive(true);
+            if (transform.childCount > 0)
+            {
+                this.transform.GetChild(0).gameObject.SetActive(true);
+            }
+                
 
         }
     }
