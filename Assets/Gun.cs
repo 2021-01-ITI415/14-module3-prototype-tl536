@@ -102,7 +102,7 @@ public class Gun : MonoBehaviour
         {
             Debug.Log(rayHit.collider.name);
             if (rayHit.collider.CompareTag("Enemy"))
-                rayHit.collider.GetComponent<Target>().TakeDamage(damage);
+                rayHit.collider.GetComponent<Enemy>().TakeDamage(damage);
         }
 
         StartCoroutine(camShake.Shake(camShakeDuration, camShakeMagnitude));
