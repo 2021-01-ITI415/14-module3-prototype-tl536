@@ -178,6 +178,10 @@ MonoBehaviour:
   m_JumpSound: {fileID: 8300000, guid: 5897aeed9b676024fbb8c694b421a861, type: 3}
   m_LandSound: {fileID: 8300000, guid: 3b09d59f4499d45428baa7a21e954296, type: 3}
   m_Collect: {fileID: 0}
+  HP: 100
+  mission: {fileID: 0}
+  health: {fileID: 0}
+  collect: {fileID: 0}
 --- !u!54 &5400000
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -415,10 +419,12 @@ MonoBehaviour:
   ShootingSound: {fileID: 0}
   audioshoot: {fileID: 0}
   audioreload: {fileID: 0}
+  outofammo: {fileID: 0}
   camShake: {fileID: 0}
   camShakeMagnitude: 0
   camShakeDuration: 0
   text: {fileID: 0}
+  wholesize: 0
 --- !u!1 &5020202906419233420
 GameObject:
   m_ObjectHideFlags: 0

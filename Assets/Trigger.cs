@@ -35,7 +35,7 @@ public class Trigger : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         inrange = true;
-        if (other.gameObject.CompareTag("Hero"))
+        if (other.gameObject.CompareTag("Hero") && fired == false)
         {
 
             trigger.SetText("Press E to start the particle cannon");

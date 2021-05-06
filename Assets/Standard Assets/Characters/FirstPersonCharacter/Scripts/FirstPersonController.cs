@@ -45,9 +45,9 @@ namespace UnityStandardAssets.Characters.FirstPerson
         private AudioSource m_AudioSource;
         private int collection = 0;
         private int generator = 0;
-        public float HP = 100f;
+
         public TextMeshProUGUI mission;
-        public TextMeshProUGUI health;
+
         public TextMeshProUGUI collect;
         private bool collecting;
         private bool starting;
