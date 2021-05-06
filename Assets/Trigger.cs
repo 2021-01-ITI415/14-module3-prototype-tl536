@@ -13,6 +13,8 @@ public class Trigger : MonoBehaviour
     public AudioClip victory;
 
     public TextMeshProUGUI trigger;
+    public TextMeshProUGUI endtime;
+    public GameObject endTimer;
     public GameObject Laser;
     private bool inrange = false;
     private bool fired = false;
@@ -58,7 +60,8 @@ public class Trigger : MonoBehaviour
         yield return new WaitForSeconds(1);
         trigger.SetText("Particle cannon activated");
         yield return new WaitForSeconds(2);
-        trigger.SetText("Mission Accomplished!");
+        trigger.SetText("Mission Accomplished! " + (endtime.text));
+        Destroy(endTimer);
         cannon.PlayOneShot(victory);
 
 
