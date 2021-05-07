@@ -2,27 +2,60 @@
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using UnityEngine.SceneManagement;
+
 public class Timer : MonoBehaviour
 {
-    public TextMeshProUGUI timerText;
+    public TextMeshProUGUI timeText;
+    public TextMeshProUGUI loseText;
+    public float timeRemaining = 600;
     private float startTime;
-    // Start is called before the first frame update
-    void Start()
+    public bool timerIsRunning = false;
+
+
+    private void Start()
     {
-        startTime = Time.time;
+        // Starts the timer automatically
+        timerIsRunning = true;
     }
 
-
-
-    // Update is called once per frame
     void Update()
     {
-        float t = Time.time - startTime;
+        if (timerIsRunning)
+        {
+            if (timeRemaining > 0)
+            {
+                timeRemaining -= Time.deltaTime;
+                DisplayTime(timeRemaining);
+            }
+            else
+            {
+                Debug.Log("Time has run out!");
+                timeRemaining = 0;
+                timerIsRunning = false;
+                StartCoroutine(Endit());
+            }
+        }
+    }
 
-        string minutes = ((int)t / 60).ToString();
-        string seconds = (t % 60).ToString("f2");
+    void DisplayTime(float timeToDisplay)
+    {
+        timeToDisplay += 1;
 
-        timerText.text = minutes + ":" + seconds;
+        float minutes = Mathf.FloorToInt(timeToDisplay / 60);
+        float seconds = Mathf.FloorToInt(timeToDisplay % 60);
+
+        timeText.text = string.Format("{0:00}:{1:00}", minutes, seconds);
+    }
+
+    IEnumerator Endit()
+    {
+        loseText.SetText("Time has run out! Mission Failed");
+        yield return new WaitForSeconds(5);
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+
+
+
 
     }
 }

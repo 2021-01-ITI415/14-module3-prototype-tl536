@@ -28,7 +28,7 @@ public class Enemy : MonoBehaviour
     private void Update()
     {
         float distance = Vector3.Distance(transform.position, Player.transform.position);
-        if(distance < AtkDistance)
+        if(distance < AtkDistance && health>=0)
         {
             StopEnemy();
             if((Time.time - lastAttackTime) >= attackCooldown)
@@ -38,7 +38,7 @@ public class Enemy : MonoBehaviour
                 Anim.Play("attack");
                 if (health <= 0f)
                 {
-
+                    Mob.Stop();
                     Die();
                 }
 
@@ -85,6 +85,9 @@ public class Enemy : MonoBehaviour
         StartCoroutine(Death());
 
     }
+
+
+
     IEnumerator Death()
     {
         Mob.Stop();

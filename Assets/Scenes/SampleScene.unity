@@ -323,82 +323,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4481777221271996, guid: 9207d796a4eef5c4fb42153a24ebf588, type: 3}
   m_PrefabInstance: {fileID: 1702817}
   m_PrefabAsset: {fileID: 0}
---- !u!21 &9810990
-Material:
-  serializedVersion: 6
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_Name: SingleLine-LightSaber(Clone)
-  m_Shader: {fileID: 4800000, guid: 2d9a4ca4b2730b64e8aade7030f8caeb, type: 3}
-  m_ShaderKeywords: 
-  m_LightmapFlags: 5
-  m_EnableInstancingVariants: 0
-  m_DoubleSidedGI: 0
-  m_CustomRenderQueue: -1
-  stringTagMap: {}
-  disabledShaderPasses: []
-  m_SavedProperties:
-    serializedVersion: 3
-    m_TexEnvs:
-    - _BumpMap:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - _DetailAlbedoMap:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - _DetailMask:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - _DetailNormalMap:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - _EmissionMap:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - _MainTex:
-        m_Texture: {fileID: 10300, guid: 0000000000000000f000000000000000, type: 0}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - _MetallicGlossMap:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - _OcclusionMap:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - _ParallaxMap:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    m_Floats:
-    - _BumpScale: 1
-    - _Cutoff: 0.5
-    - _DetailNormalMapScale: 1
-    - _DstBlend: 0
-    - _Glossiness: 0.5
-    - _LightSaberFactor: 0.8
-    - _LineScale: 1
-    - _LineWidth: 20
-    - _Metallic: 0
-    - _Mode: 0
-    - _OcclusionStrength: 1
-    - _Parallax: 0.02
-    - _SrcBlend: 1
-    - _UVSec: 0
-    - _UvBasedLightSaberFactor: 0
-    - _ZWrite: 1
-    m_Colors:
-    - _Color: {r: 0, g: 1, b: 1, a: 1}
-    - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
-  m_BuildTextureStacks: []
 --- !u!1 &11731243
 GameObject:
   m_ObjectHideFlags: 0
@@ -7329,6 +7253,10 @@ PrefabInstance:
       propertyPath: m_MouseLook.YSensitivity
       value: 1.8
       objectReference: {fileID: 0}
+    - target: {fileID: 14300000, guid: 5e9e851c0e142814dac026a256ba2ac0, type: 3}
+      propertyPath: m_Height
+      value: 1.8
+      objectReference: {fileID: 0}
     - target: {fileID: 1035028466863212088, guid: 5e9e851c0e142814dac026a256ba2ac0, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -7406,8 +7334,12 @@ PrefabInstance:
       value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 7892770173689544687, guid: 5e9e851c0e142814dac026a256ba2ac0, type: 3}
+      propertyPath: damage
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7892770173689544687, guid: 5e9e851c0e142814dac026a256ba2ac0, type: 3}
       propertyPath: spread
-      value: 0.02
+      value: 0.03
       objectReference: {fileID: 0}
     - target: {fileID: 7892770173689544687, guid: 5e9e851c0e142814dac026a256ba2ac0, type: 3}
       propertyPath: camShake
@@ -7419,7 +7351,7 @@ PrefabInstance:
       objectReference: {fileID: 8300000, guid: 2ab5f70d9c865ab4e8fb2dcbe4011afe, type: 3}
     - target: {fileID: 7892770173689544687, guid: 5e9e851c0e142814dac026a256ba2ac0, type: 3}
       propertyPath: wholesize
-      value: 240
+      value: 270
       objectReference: {fileID: 0}
     - target: {fileID: 7892770173689544687, guid: 5e9e851c0e142814dac026a256ba2ac0, type: 3}
       propertyPath: audioshoot
@@ -8084,16 +8016,22 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Move: WASD
+  m_text: 'The DARKBIO Corporation is planning on spreading the Zombie Virus through
+    their satellite.
+
+    You need to start the particle cannon in their lab to destroy
+    the satellite in 10 minutes!
+
+    Move: WASD
 
     Jump: Space
 
     Run: Shift
 
-    Reload: R
+    Reload:
+    R
 
-    Flash
-    Light: F'
+    Flash Light: F'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -10032,6 +9970,82 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: dc3d2c5a3d4ce3e44be28b500526dc6e, type: 3}
+--- !u!21 &539391192
+Material:
+  serializedVersion: 6
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: SingleLine-LightSaber(Clone)
+  m_Shader: {fileID: 4800000, guid: 2d9a4ca4b2730b64e8aade7030f8caeb, type: 3}
+  m_ShaderKeywords: 
+  m_LightmapFlags: 5
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+    - _BumpMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _DetailAlbedoMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _DetailMask:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _DetailNormalMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _EmissionMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _MainTex:
+        m_Texture: {fileID: 10300, guid: 0000000000000000f000000000000000, type: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _MetallicGlossMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _OcclusionMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _ParallaxMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Floats:
+    - _BumpScale: 1
+    - _Cutoff: 0.5
+    - _DetailNormalMapScale: 1
+    - _DstBlend: 0
+    - _Glossiness: 0.5
+    - _LightSaberFactor: 0.8
+    - _LineScale: 1
+    - _LineWidth: 20
+    - _Metallic: 0
+    - _Mode: 0
+    - _OcclusionStrength: 1
+    - _Parallax: 0.02
+    - _SrcBlend: 1
+    - _UVSec: 0
+    - _UvBasedLightSaberFactor: 0
+    - _ZWrite: 1
+    m_Colors:
+    - _Color: {r: 0, g: 1, b: 1, a: 1}
+    - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
+  m_BuildTextureStacks: []
 --- !u!4 &547515120 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4734514397559992, guid: dc3d2c5a3d4ce3e44be28b500526dc6e, type: 3}
@@ -13562,7 +13576,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 818187420}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 208.1, y: 19.6, z: 331.7}
+  m_LocalPosition: {x: 208.1, y: 21.01, z: 331.7}
   m_LocalScale: {x: 30, y: 1, z: 30}
   m_Children:
   - {fileID: 1613273352}
@@ -13751,6 +13765,8 @@ MonoBehaviour:
   maxHealth: 0
   isDead: 0
   HP: {fileID: 600923562}
+  showdeath: {fileID: 286912196}
+  myself: {fileID: 848343880}
 --- !u!1001 &854552920
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -14636,7 +14652,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 913355380}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 166.8, y: 19.6, z: 292}
+  m_LocalPosition: {x: 177.03, y: 21.01, z: 292}
   m_LocalScale: {x: 30, y: 1, z: 30}
   m_Children:
   - {fileID: 2006593827}
@@ -16301,7 +16317,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1058095729}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 230.8, y: 19.800001, z: 226.2}
+  m_LocalPosition: {x: 230.8, y: 21.210001, z: 226.2}
   m_LocalScale: {x: 30, y: 1, z: 30}
   m_Children:
   - {fileID: 1857720298}
@@ -16666,7 +16682,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1063037451}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 234.8, y: 19.6, z: 241.9}
+  m_LocalPosition: {x: 234.8, y: 21.01, z: 241.9}
   m_LocalScale: {x: 30, y: 1, z: 30}
   m_Children:
   - {fileID: 173390348}
@@ -20245,7 +20261,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f62f68b129a8dba42936eff0f9e99149, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  timerText: {fileID: 880455}
+  timeText: {fileID: 880455}
+  loseText: {fileID: 286912196}
+  timeRemaining: 600
+  timerIsRunning: 0
 --- !u!65 &1453366648
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -22181,7 +22200,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1611619758}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 162.6, y: 19.6, z: 210.6}
+  m_LocalPosition: {x: 162.6, y: 21.01, z: 210.6}
   m_LocalScale: {x: 30, y: 1, z: 30}
   m_Children:
   - {fileID: 1898770354}
@@ -22593,8 +22612,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1631571048}
-  m_LocalRotation: {x: -0.08904837, y: 0.5163892, z: 0.054125205, w: 0.84999007}
-  m_LocalPosition: {x: 127.09977, y: -12.114015, z: 191.30954}
+  m_LocalRotation: {x: -0.13156983, y: 0.40749153, z: 0.05948082, w: 0.9017217}
+  m_LocalPosition: {x: 155.58832, y: -763.4499, z: -318.2193}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -25515,7 +25534,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1950433296}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 241.2, y: 19.79, z: 292}
+  m_LocalPosition: {x: 241.2, y: 21.2, z: 292}
   m_LocalScale: {x: 30, y: 1, z: 30}
   m_Children:
   - {fileID: 658368668}
@@ -26413,7 +26432,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2046964823}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 205.7, y: 11.1, z: 359.8}
+  m_LocalPosition: {x: 203.24, y: 11.47, z: 336.86}
   m_LocalScale: {x: 30, y: 1, z: 30}
   m_Children:
   - {fileID: 1101593281}
@@ -26735,7 +26754,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2101797533}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 262, y: 19.800001, z: 301.9}
+  m_LocalPosition: {x: 262, y: 21.210001, z: 301.9}
   m_LocalScale: {x: 30, y: 1, z: 30}
   m_Children:
   - {fileID: 1015915575}

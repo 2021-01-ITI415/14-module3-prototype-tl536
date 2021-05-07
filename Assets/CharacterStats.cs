@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using UnityEngine.SceneManagement;
 
 public class CharacterStats : MonoBehaviour
 {
@@ -10,6 +11,8 @@ public class CharacterStats : MonoBehaviour
     public float maxHealth;
     public bool isDead = false;
     public TextMeshProUGUI HP;
+    public TextMeshProUGUI showdeath;
+    public GameObject myself;
 
     public void TakeDamage(float amount)
     {
@@ -22,11 +25,22 @@ public class CharacterStats : MonoBehaviour
 
     void Die()
     {
+        showdeath.SetText("Game Over");
         
+        StartCoroutine(Restart());
+
     }
     private void Update()
     {
 
         HP.SetText(health.ToString());
+    }
+    IEnumerator Restart()
+    {
+        yield return new WaitForSeconds(5);
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+
+
+
     }
 }
